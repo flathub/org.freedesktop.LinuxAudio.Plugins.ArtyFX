@@ -18,7 +18,15 @@
         {
             "name": "artyfx",
             "buildsystem": "cmake-ninja",
-            "config_opts": [],
+            "build-options": {
+                "arch": {
+                    "aarch64": {
+                        "config-opts": [
+                            "-DBUILD_SSE=OFF"
+                        ]
+                    }
+                }
+            },
             "cleanup": [],
             "post_install": [
                 "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.freedesktop.LinuxAudio.Plugins.ArtyFX.metainfo.xml",
@@ -41,6 +49,10 @@
                 {
                     "type": "patch",
                     "path": "patches/003-artyfx-build.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/artyfx-aarch64.patch"
                 },
                 {
                     "type": "file",

@@ -43,6 +43,10 @@
                     "path": "patches/003-artyfx-build.patch"
                 },
                 {
+                    "type": "patch",
+                    "path": "patches/004-aarch-build.patch"
+                },
+                {
                     "type": "file",
                     "path": "org.freedesktop.LinuxAudio.Plugins.ArtyFX.metainfo.xml"
                 }

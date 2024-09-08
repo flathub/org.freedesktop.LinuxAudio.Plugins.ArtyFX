@@ -2,10 +2,9 @@
     "id": "org.freedesktop.LinuxAudio.Plugins.ArtyFX",
     "runtime": "org.freedesktop.LinuxAudio.BaseExtension",
     "runtime-version": "stable",
-    "sdk": "org.freedesktop.Sdk//23.08",
+    "sdk": "org.freedesktop.Sdk//24.08",
     "build-extension": true,
-    "appstream-compose": false,
-    "branch": "23.08",
+    "branch": "24.08",
     "build-options": {
         "prefix": "/app/extensions/Plugins/ArtyFX",
         "prepend-pkg-config-path": "/app/extensions/Plugins/ArtyFX/lib/pkgconfig"
@@ -27,10 +26,8 @@
                     }
                 }
             },
-            "cleanup": [],
             "post_install": [
-                "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.freedesktop.LinuxAudio.Plugins.ArtyFX.metainfo.xml",
-                "appstream-compose --basename=org.freedesktop.LinuxAudio.Plugins.ArtyFX --prefix=${FLATPAK_DEST} --origin=flatpak org.freedesktop.LinuxAudio.Plugins.ArtyFX"
+                "install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.freedesktop.LinuxAudio.Plugins.ArtyFX.metainfo.xml"
             ],
             "sources": [
                 {
@@ -40,11 +37,10 @@
                 },
                 {
                     "type": "patch",
-                    "path": "patches/003-artyfx-build.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/004-aarch-build.patch"
+                    "paths": [
+                        "patches/003-artyfx-build.patch",
+                        "patches/004-aarch-build.patch"
+                    ]
                 },
                 {
                     "type": "file",
